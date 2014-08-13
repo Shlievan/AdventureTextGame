@@ -1,4 +1,4 @@
-package game.adventure.game.wow;
+package game;
 
 public class TestTest {
 
