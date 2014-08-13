@@ -1,4 +1,4 @@
-package screeens;
+package screens;
 
 import java.awt.EventQueue;
 

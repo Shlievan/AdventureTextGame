@@ -1,4 +1,4 @@
-package game;
+package gamestuff;
 
 public class Monster {
 	private int health;

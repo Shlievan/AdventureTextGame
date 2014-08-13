@@ -1,7 +1,7 @@
-package screeens;
+package screens;
 
-import game.GameControl;
-import game.Player;
+import gamestuff.GameControl;
+import gamestuff.Player;
 
 import java.awt.EventQueue;
 
@@ -65,19 +65,13 @@ public class Game {
 		initialize();
 	}
 	
-	private void updateBars(){
-	
+	public void updateBars(int health, int mana, int exp){
+		pgrbar_MANA.setValue(mana);
+		pgrBar_HEALTH.setValue(health);
+		pgrBar_EXP.setValue(exp);
 	}
 	
-	public void modifyHealth(int change){
-		pgrBar_HEALTH.setValue(pgrBar_HEALTH.getValue() + change);
-	}
-	public void modifyMana(int change){
-		pgrbar_MANA.setValue(pgrbar_MANA.getValue() + change);
-	}
-	public void modifyExperience(int change){
-		pgrBar_EXP.setValue(pgrBar_EXP.getValue() + change);
-	}
+
 	public void addText(String text){
 		textArea.append(text);
 		textArea.append("\n");
@@ -157,7 +151,7 @@ public class Game {
 		
 		
 		
-
+		
 		pgrbar_MANA.setValue(player.getMana());
 		pgrbar_MANA.setMaximum(player.getMaxMana());
 		pgrbar_MANA.setToolTipText("Mana");
@@ -234,6 +228,7 @@ public class Game {
 		btn_addHealth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				player.modifyHealth(5);
+				
 			}
 		});
 		btn_addHealth.setBounds(576, 293, 57, 29);
@@ -243,6 +238,7 @@ public class Game {
 		btn_subHealth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				player.modifyHealth(-5);
+				System.out.println("-5 health");
 			}
 		});
 		btn_subHealth.setBounds(576, 327, 57, 29);

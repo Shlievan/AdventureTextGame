@@ -1,7 +1,7 @@
-package game;
+package gamestuff;
 
-import game.Exit;
-import game.Location;
+import gamestuff.Exit;
+import gamestuff.Location;
 /**
  * The Exit Class
  * Deals with direction details

@@ -1,16 +1,17 @@
-package game;
+package gamestuff;
 
-import screeens.Game;
-import screeens.Game2;
+import screens.Game;
+import screens.Game2;
 
 public class GameControl {
 	private static Player player = new Player();
-	private static Game2 game;
+	private static Game game;
 	public static void main(String[] args) {
 		createPlayerTestClass();
 		
-		game = new Game2();
+		game = new Game();
 		game.main(args);
+		
 		
 	}
 	
@@ -18,8 +19,12 @@ public class GameControl {
 		game.addText(text);
 	}
 	
-	public static void modifyAttribute(){
-		
+	public static void updateGUI(){
+		game.updateBars(
+				player.getHealth(), 
+				player.getMana(), 
+				player.getExp()
+		);
 	}
 	
 	private static void createPlayerTestClass(){

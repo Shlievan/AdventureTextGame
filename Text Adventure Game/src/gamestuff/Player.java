@@ -1,4 +1,4 @@
-package game;
+package gamestuff;
 
 public class Player {
 	private static String name;
@@ -48,6 +48,8 @@ public class Player {
 		}else{
 			health = newHealth;
 		}
+		GameControl.updateGUI();
+		System.out.println("We should have updated the GUI");
 	}
 	
 	public static void setMana(int newMana){
@@ -68,6 +70,9 @@ public class Player {
 		}else{
 			mana = newMana;
 		}
+		GameControl.updateGUI();
+		System.out.println("We should have updated the GUI");
+		
 	}
 	
 	public static void setMaxExp(int exp){
@@ -88,6 +93,7 @@ public class Player {
 		}else{
 			experience = newExp;
 		}
+		GameControl.updateGUI();
 	}
 	
 	
@@ -97,4 +103,6 @@ public class Player {
 			tempStat = -1;
 		return tempStat;
 	}
+
+
 }
