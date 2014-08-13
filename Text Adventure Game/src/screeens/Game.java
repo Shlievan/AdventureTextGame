@@ -40,7 +40,7 @@ public class Game {
 	private JProgressBar pgrbar_MANA = new JProgressBar();
 	private JProgressBar pgrBar_HEALTH = new JProgressBar();
 	private JProgressBar pgrBar_EXP = new JProgressBar();
-	private Player player = new Player();
+	private Player player;
 	
 	/**
 	 * Launch the application.
@@ -63,7 +63,10 @@ public class Game {
 	 */
 	public Game() {
 		initialize();
-		
+	}
+	
+	private void updateBars(){
+	
 	}
 	
 	public void modifyHealth(int change){
@@ -155,7 +158,8 @@ public class Game {
 		
 		
 
-		pgrbar_MANA.setValue();
+		pgrbar_MANA.setValue(player.getMana());
+		pgrbar_MANA.setMaximum(player.getMaxMana());
 		pgrbar_MANA.setToolTipText("Mana");
 		pgrbar_MANA.setStringPainted(true);
 		pgrbar_MANA.setForeground(Color.BLUE);
@@ -164,7 +168,8 @@ public class Game {
 		
 		
 		pgrBar_HEALTH.setStringPainted(true);
-		pgrBar_HEALTH.setValue(50);
+		pgrBar_HEALTH.setValue(player.getHealth());
+		pgrBar_HEALTH.setMaximum(player.getMaxHealth());
 		pgrBar_HEALTH.setToolTipText("Health");
 		pgrBar_HEALTH.setBackground(Color.BLACK);
 		pgrBar_HEALTH.setForeground(Color.RED);
@@ -172,7 +177,8 @@ public class Game {
 		frmFunAdventureGame.getContentPane().add(pgrBar_HEALTH);
 		
 		
-		pgrBar_EXP.setValue(50);
+		pgrBar_EXP.setValue(0);
+		pgrBar_EXP.setMaximum(player.getExpNeeded());
 		pgrBar_EXP.setStringPainted(true);
 		pgrBar_EXP.setToolTipText("Experience");
 		pgrBar_EXP.setForeground(Color.ORANGE);
@@ -223,5 +229,59 @@ public class Game {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(576, 185, 115, 2);
 		frmFunAdventureGame.getContentPane().add(separator_1);
+		
+		JButton btn_addHealth = new JButton("+H");
+		btn_addHealth.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player.modifyHealth(5);
+			}
+		});
+		btn_addHealth.setBounds(576, 293, 57, 29);
+		frmFunAdventureGame.getContentPane().add(btn_addHealth);
+		
+		JButton btn_subHealth = new JButton("-H");
+		btn_subHealth.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player.modifyHealth(-5);
+			}
+		});
+		btn_subHealth.setBounds(576, 327, 57, 29);
+		frmFunAdventureGame.getContentPane().add(btn_subHealth);
+		
+		JButton btn_subMana = new JButton("-M");
+		btn_subMana.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player.modifyMana(5);
+			}
+		});
+		btn_subMana.setBounds(634, 327, 57, 29);
+		frmFunAdventureGame.getContentPane().add(btn_subMana);
+		
+		JButton btn_addMana = new JButton("+M");
+		btn_addMana.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player.modifyMana(-5);
+			}
+		});
+		btn_addMana.setBounds(634, 293, 57, 29);
+		frmFunAdventureGame.getContentPane().add(btn_addMana);
+		
+		JButton btn_addExp = new JButton("+E");
+		btn_addExp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player.modifyExp(5);
+			}
+		});
+		btn_addExp.setBounds(576, 362, 57, 29);
+		frmFunAdventureGame.getContentPane().add(btn_addExp);
+		
+		JButton btn_subExp = new JButton("-E");
+		btn_subExp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				player.modifyExp(-5);
+			}
+		});
+		btn_subExp.setBounds(634, 362, 57, 29);
+		frmFunAdventureGame.getContentPane().add(btn_subExp);
 	}
 }
