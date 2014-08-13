@@ -3,6 +3,7 @@ package game;
 import java.util.Vector;
 
 public class Location {
+	
 	// Member Variables
 	private String m_roomTitle;
 	private String m_roomDescription;
