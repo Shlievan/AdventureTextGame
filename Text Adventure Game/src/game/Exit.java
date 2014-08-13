@@ -2,9 +2,12 @@ package game;
 
 import game.Exit;
 import game.Location;
-
+/**
+ * The Exit Class
+ * Deals with direction details
+ */
 public class Exit {
-
+	
 	public static final int UNDEFINED = 0;
 	public static final int NORTH = 1;
 	public static final int SOUTH = 2;
@@ -18,7 +21,11 @@ public class Exit {
 	public static final int SOUTHWEST = 10;
 	public static final int IN = 11;
 	public static final int OUT = 12;
-	
+	/**
+	 * String[] dirName
+	 * Array of Direction Names
+	 * @return null
+	 */
 	// String codes
 	public static final String[] dirName = {
 		"UNDEFINED",
@@ -35,7 +42,11 @@ public class Exit {
 		"IN",
 		"OUT"
 	};
-	
+	/**
+	 * String[] shortDirName
+	 * Array of shortened direction names
+	 * @return null
+	 */
 	public static final String[] shortDirName = 
 	{
 		"NULL",
@@ -53,27 +64,46 @@ public class Exit {
 		"O"
 	};
 	
-	
-	// Member variables
+	/**
+	 * private Location m_leadsTo
+	 */
+
 	private Location m_leadsTo = null;
+	/**
+	 *private int m_direction
+	 */
 	private int m_direction;
-	
-	// Full name of direction eg SOUTHEAST
+	/**
+	 * private String m_directionName
+	 * Full name of the direction
+	 */
+
 	private String m_directionName;
-	
-	// Direction shorthand
+	/**
+	 * private String m_shortDirectionName
+	 * Short version of the direction
+	 */
+
 	private String m_shortDirectionName;
 	
-	
-	// Default Constructor
+	/**
+	 * Default Constructor
+	 */
+
 	public Exit(){
 		m_direction = Exit.UNDEFINED;
 		m_leadsTo = null;
 		m_directionName = dirName[UNDEFINED];
 		m_shortDirectionName = shortDirName[UNDEFINED];
 	}
-	
-	// Full constructor
+	/**
+	 * Full Constructor
+	 * This constructor assigns direction and shorthand direction
+	 * m_leadsTo is set to leadsTo
+	 * @param int direction
+	 * @param Location leadsTo
+	 * 
+	 */
 	public Exit(int direction, Location leadsTo){
 		m_direction = direction;
 		
@@ -87,37 +117,63 @@ public class Exit {
 		// Assign location
 		m_leadsTo = leadsTo;
 	}
-	
+	/**
+	 * public String toString
+	 * @return m_directionName
+	 */
 	// toString Method
 	public String toString(){
-		return m_directionName;
+		return "Direction: " + getDirectionName();//Changed from m_directionName to
+												  //getDirectionName()
 	}
-	
+	/**
+	 * setDirectionName
+	 * * Sets m_directionName to dirname
+	 * @param String dirname	 
+	 */
 	// Assigns direction Name
 	public void setDirectionName(String dirname){
 		m_directionName = dirname;
 	}
-	
+	/**
+	 * public String getDirectionName
+	 * @return m_directionName
+	 */
 	// Returns direction name
 	public String getDirectionName(){
 		return m_directionName;
 	}
-	
+	/**
+	 * setShortDirectionName
+	 * sets m_shortDirectionName to shortName
+	 * @param String shortName
+	 *
+	 */
 	// Assigns short direction name
 	public void setShortDirectionName(String shortName){
 		m_shortDirectionName = shortName;
 	}
-	
+	/**
+	 * getShortDirectionName
+	 * @return m_shortDirectionName
+	 */
 	// Returns short direction name
 	public String getShortDirectionName(){
 		return m_shortDirectionName;
 	}
-	
+	/**
+	 * setLeadsTo
+	 * @param Location leadsTo
+	 * sets m_leadsTo to leadsTo
+	 */
 	// Assigns location
 	public void setLeadsTo(Location leadsTo){
 		m_leadsTo = leadsTo;
 	}
-	
+	/**
+	 * getLeadsTo
+	 * @return m_leadsTo
+	 */
 	// Returns location
 	public Location getLeadsTo(){
 		return m_leadsTo;
