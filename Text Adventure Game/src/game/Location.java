@@ -8,6 +8,7 @@ import java.util.Vector;
  */
 
 public class Location {
+	
 	// Member Variables
 	/**
 	 * Name of the room
